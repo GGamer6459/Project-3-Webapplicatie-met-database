@@ -8,10 +8,13 @@
 </head>
 
 <body>
-    <label for="username">Gebruikersnaam</label><br>
-    <input type="text" name="username" /><br>
-    <label for="password">Password</label>
-    <input type="password" name="password" />
+    <form action="register_query.php" method="POST">
+        <label for="username">Gebruikersnaam</label>
+        <input type="text" name="username" /><br>
+        <label for="password">Password</label>
+        <input type="password" name="password" /><br>
+        <br><button>Registreren</button>
+    </form>
 </body>
 
 </html>
