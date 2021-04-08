@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+
+<script>
+  function showTime(){
+    var date = new Date();
+    var h = date.getHours(); // 0 - 23
+    var m = date.getMinutes(); // 0 - 59
+    var s = date.getSeconds(); // 0 - 59
+    var session = "AM";
+
+    if(h == 0){
+      h = 12;
+    }
+
+    if(h > 12){
+      h = h - 12;
+      session = "PM";
+    }
+
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+
+    var time = h + ":" + m + ":" + s + " " + session;
+    document.getElementById("MyClockDisplay").innerText = time;
+    document.getElementById("MyClockDisplay").textContent = time;
+
+    setTimeout(showTime, 1000);
+  }
+
+  showTime();
+</script>
+
+<button onClick="window.location.reload();">Opnieuw Spelen</button>
+
+  <div class="selections">
+    <button class="selection" data-selection="steen">✊</button>
+    <button class="selection" data-selection="papier">✋</button>
+    <button class="selection" data-selection="schaar">✌</button>
+  </div>
+  <div class="results">
+    <div>
+      Jij
+      <span class="result-score" data-your-score>0</span>
+    </div>
+    <div data-final-column>
+      Tegenstander
+      <span class="result-score" data-computer-score>0</span>
+    </div>
+  </div>
+</body>
+</html>
